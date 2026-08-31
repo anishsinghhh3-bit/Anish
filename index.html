@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anish Singh — Backend & AI Systems</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<style>
+@import url('https://api.fontshare.com/v2/css?f[]=departure-mono@400&display=swap');
+
+:root {
+  --bg: #F5F2EB;
+  --text: #1A1A1A;
+  --text-secondary: #6B6560;
+  --accent: #CC5500;
+  --border: rgba(26,26,26,0.08);
+  --border-strong: rgba(26,26,26,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Departure Mono', 'Courier New', 'Menlo', monospace;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--text);
+  color: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover { color: var(--accent); }
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+/* Header */
+header {
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header .name {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+header .email {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+header .email:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+  padding: 80px 48px 160px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(56px, 11vw, 148px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero .subtitle {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: 40px;
+  color: var(--text-secondary);
+}
+
+.hero .status {
+  font-size: 13px;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.hero .intro {
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 540px;
+  margin-top: 56px;
+  color: var(--text-secondary);
+}
+
+/* Sections */
+section {
+  padding: 120px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-secondary);
+  margin-bottom: 64px;
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-photo {
+  width: 100%;
+  filter: grayscale(15%) contrast(1.02);
+  border: 1px solid var(--border);
+}
+
+.about-text p {
+  margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about-text p:last-child { margin-bottom: 0; }
+
+.about-text strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Projects */
+.project {
+  border-top: 1px solid var(--border-strong);
+  padding: 56px 0 64px;
+}
+
+.project:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-number {
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  margin-right: 16px;
+}
+
+.project-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  display: inline;
+}
+
+.project-status {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.project-meta {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.project-desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid var(--border);
+}
+
+/* Capabilities */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 80px;
+}
+
+.capabilities-category {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.capabilities-list {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Experience */
+.experience-item {
+  border-top: 1px solid var(--border-strong);
+  padding: 36px 0;
+}
+
+.experience-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-role {
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.experience-company {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.experience-date {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: right;
+  letter-spacing: 0.02em;
+}
+
+.experience-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 720px;
+}
+
+/* Education */
+.education-item {
+  border-top: 1px solid var(--border-strong);
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.education-item:first-child { border-top: none; padding-top: 0; }
+
+.education-school {
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.education-detail {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* Awards */
+.award-item {
+  border-top: 1px solid var(--border-strong);
+  padding: 28px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.award-item:first-child { border-top: none; padding-top: 0; }
+
+.award-item strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Contact */
+.contact {
+  padding-bottom: 160px;
+}
+
+.contact-email {
+  font-size: clamp(28px, 5vw, 56px);
+  letter-spacing: -0.02em;
+  display: inline-block;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.contact-phone {
+  font-size: 15px;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.contact-note {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 48px;
+  max-width: 400px;
+  line-height: 1.7;
+}
+
+/* Footer */
+footer {
+  padding: 48px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--border);
+}
+
+/* Scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  header { padding: 24px; }
+  .hero { padding: 60px 24px 100px; }
+  section { padding: 80px 24px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .capabilities-grid { grid-template-columns: 1fr; gap: 40px; }
+  .experience-header { flex-direction: column; gap: 4px; }
+  .experience-date { text-align: left; }
+  .education-item { flex-direction: column; gap: 4px; }
+  .education-detail { text-align: left; }
+  .project-header { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 600px) {
+  .hero h1 { font-size: 48px; }
+  .contact-email { font-size: 24px; }
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header>
+  <a href="#" class="name">Anish Singh</a>
+  <a href="mailto:anishsinghhh3@gmail.com" class="email">anishsinghhh3@gmail.com</a>
+</header>
+
+<section class="hero">
+  <h1>Anish<br>Singh</h1>
+  <p class="subtitle">Backend & AI Systems</p>
+  <p class="status">Currently building Vesper & Orchestra</p>
+  <p class="intro">Backend-focused engineer who ships complete products end to end — schema, API, and deployment, not just features. Most interested in offline-first systems and wiring LLMs into backend products.</p>
+</section>
+
+<section class="about">
+  <p class="section-label">About</p>
+  <div class="about-grid reveal">
+    <img src="images/profile.jpg" alt="Anish Singh" class="about-photo">
+    <div class="about-text">
+      <p>I build tools that work without calling home. A local PDF search engine that indexes documents with Poppler and answers queries through a retrieval-augmented LLM pipeline. A Chrome extension that analyzes browsing history for confirmation bias — entirely on-device, zero server-side collection.</p>
+      <p>At Infosys, I wrote regression tests across a 50K-line production codebase. Since October 2025, I've been evaluating AI model outputs for Peroptyx, flagging inaccuracies against detailed quality rubrics across international datasets.</p>
+      <p>Right now I'm splitting time between <strong>Vesper</strong>, an intention-based dating app that replaces swiping with one proposed match per evening, and <strong>Orchestra</strong>, a multi-agent tool that coordinates several LLM providers across a product's full research-to-critique lifecycle.</p>
+      <p>B.Sc. Computer Science at MITS School of Engineering, Rourkela. Expected 2026.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects">
+  <p class="section-label">Selected Work</p>
+
+  <article class="project reveal">
+    <div class="project-header">
+      <div>
+        <span class="project-number">01</span>
+        <h3 class="project-title">Offline AI PDF Search</h3>
+      </div>
+    </div>
+    <p class="project-meta">C++ · Qt6 · Poppler · SQLite · LLM API</p>
+    <p class="project-desc">Indexed local PDF corpora with Poppler and cached metadata in SQLite, cutting cold-start time on repeat searches across large document sets. Built a retrieval-augmented pipeline that routes natural-language queries to an LLM API over the indexed corpus, with per-user key management via QSettings and a CMake-built Windows installer.</p>
+    <img src="images/pdf-search.png" alt="Pixeled Crow Research Assistant interface" class="project-image">
+  </article>
+
+  <article class="project reveal">
+    <div class="project-header">
+      <div>
+        <span class="project-number">02</span>
+        <h3 class="project-title">Vesper</h3>
+      </div>
+      <span class="project-status">In Progress</span>
+    </div>
+    <p class="project-meta">Expo SDK 57 · React Native · TypeScript · Expo Router</p>
+    <p class="project-desc">An intention-based dating app that replaces swiping with one proposed match per evening. Built the React Native/Expo UI end to end — onboarding, home feed, intention-to-match flow, inbox, profile — with a custom design system (Cormorant Garamond + Plus Jakarta Sans, dark cognac/charcoal palette), hand-built SVG icons, and native keyboard/edge-to-edge handling.</p>
+    <img src="images/vesper.png" alt="Vesper app Spark card" class="project-image">
+  </article>
+
+  <article class="project reveal">
+    <div class="project-header">
+      <div>
+        <span class="project-number">03</span>
+        <h3 class="project-title">Orchestra</h3>
+      </div>
+      <span class="project-status">In Progress</span>
+    </div>
+    <p class="project-meta">React · Vite · Node.js · Fastify · TypeScript · PostgreSQL</p>
+    <p class="project-desc">A multi-agent product development tool that coordinates multiple LLM providers (Gemini, OpenRouter, Grok) as a pipeline across research, planning, design, build, test, and critique — not a single prompt-response call. Node.js/Fastify backend with PostgreSQL for state, a React/Vite frontend, and a TypeScript test suite on Node's test runner. Agent output is grounded in retrieved evidence rather than free-form generation.</p>
+    <img src="images/orchestra.png" alt="Orchestra workspace" class="project-image">
+  </article>
+
+  <article class="project reveal">
+    <div class="project-header">
+      <div>
+        <span class="project-number">04</span>
+        <h3 class="project-title">Ostrich Mirror</h3>
+      </div>
+    </div>
+    <p class="project-meta">Chrome Extension · Manifest V3 · JavaScript</p>
+    <p class="project-desc">A fully on-device Chrome extension that flags confirmation bias, topic avoidance, and reliance on outdated sources in a user's browsing history, with zero server-side data collection. Background service-worker architecture using chrome.storage.local and the Chrome Alarms API for hourly analysis, self-pruning history, and rule-based categorization across 10 topic areas.</p>
+    <img src="images/ostrich.png" alt="Ostrich Mirror extension popup" class="project-image">
+  </article>
+</section>
+
+<section class="capabilities">
+  <p class="section-label">Capabilities</p>
+  <div class="capabilities-grid reveal">
+    <div>
+      <p class="capabilities-category">Languages</p>
+      <p class="capabilities-list">C++<br>Python<br>Dart<br>JavaScript / TypeScript<br>SQL<br>Bash</p>
+    </div>
+    <div>
+      <p class="capabilities-category">Frameworks</p>
+      <p class="capabilities-list">React Native<br>React<br>FastAPI<br>Flutter<br>Qt6<br>Expo</p>
+    </div>
+    <div>
+      <p class="capabilities-category">Backend & Data</p>
+      <p class="capabilities-list">Supabase<br>SQLite<br>Firebase<br>PostgreSQL<br>REST API design</p>
+    </div>
+    <div>
+      <p class="capabilities-category">Tools</p>
+      <p class="capabilities-list">Git<br>CMake<br>PyInstaller<br>pytest<br>Chrome Extension APIs<br>LLM API integration<br>Poppler</p>
+    </div>
+    <div>
+      <p class="capabilities-category">Platforms</p>
+      <p class="capabilities-list">Linux<br>Android<br>Windows<br>Node.js</p>
+    </div>
+    <div>
+      <p class="capabilities-category">Practices</p>
+      <p class="capabilities-list">OOP & SOLID<br>Software architecture<br>State management<br>Async programming<br>Agile / Scrum</p>
+    </div>
+  </div>
+</section>
+
+<section class="experience">
+  <p class="section-label">Experience</p>
+
+  <div class="experience-item reveal">
+    <div class="experience-header">
+      <div>
+        <p class="experience-role">AI Model Evaluator</p>
+        <p class="experience-company">Peroptyx · Remote, Freelance</p>
+      </div>
+      <p class="experience-date">Oct 2025 — Present</p>
+    </div>
+    <p class="experience-desc">Evaluate outputs of consumer AI and location-based models against detailed, client-defined quality rubrics, flagging inaccuracies and edge cases across international datasets. Maintained consistent, on-deadline output for 10+ months in a fully remote freelance role that requires independent judgment against detailed guidelines.</p>
+  </div>
+
+  <div class="experience-item reveal">
+    <div class="experience-header">
+      <div>
+        <p class="experience-role">Software Development Intern</p>
+        <p class="experience-company">Infosys</p>
+      </div>
+      <p class="experience-date">Aug 2025 — Oct 2025</p>
+    </div>
+    <p class="experience-desc">Wrote 25+ pytest test cases across 5 critical modules of a 50K+ line production codebase, improving regression coverage and helping catch 20+ defects before release. Integrated automated test suites into the team's Agile sprint cycle, coordinating with senior engineers on a distributed team while maintaining version-control discipline.</p>
+  </div>
+</section>
+
+<section class="education">
+  <p class="section-label">Education</p>
+
+  <div class="education-item reveal">
+    <p class="education-school">B.Sc. Computer Science</p>
+    <p class="education-detail">MITS School of Engineering, Rourkela<br>Expected 2026 · CGPA: 8+/10</p>
+  </div>
+</section>
+
+<section class="awards">
+  <p class="section-label">Awards</p>
+
+  <div class="award-item reveal">
+    <strong>2nd Place, MITS Hackathon 2024</strong> — Built a GPS-based ride-pooling app end to end in a 48-hour sprint among 50+ competing teams.
+  </div>
+
+  <div class="award-item reveal">
+    <strong>Robotics Project Lead, MITS</strong> — Led a 4-person team building an Arduino weather station (temperature, humidity, pressure); wrote the embedded C++ firmware and a Python data-logging script for CSV export.
+  </div>
+</section>
+
+<section class="contact">
+  <p class="section-label">Contact</p>
+  <div class="reveal">
+    <a href="mailto:anishsinghhh3@gmail.com" class="contact-email">anishsinghhh3@gmail.com</a>
+    <p class="contact-phone">+91 78479 89722</p>
+    <p class="contact-note">No social links. If you want to talk, email works best. I check it daily and reply within 24 hours.</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Anish Singh</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
