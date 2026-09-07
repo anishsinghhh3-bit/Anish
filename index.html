@@ -346,6 +346,17 @@ section {
   letter-spacing: 0.02em;
 }
 
+.contact-links {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 16px;
+  letter-spacing: 0.02em;
+}
+
+.contact-links a {
+  margin-right: 24px;
+}
+
 .contact-note {
   font-size: 14px;
   color: var(--text-secondary);
@@ -397,6 +408,7 @@ footer {
 }
 </style>
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -408,8 +420,8 @@ footer {
 <section class="hero">
   <h1>Anish<br>Singh</h1>
   <p class="subtitle">Backend & AI Systems</p>
-  <p class="status">Currently building Vesper & Orchestra</p>
-  <p class="intro">Backend-focused engineer who ships complete products end to end — schema, API, and deployment, not just features. Most interested in offline-first systems and wiring LLMs into backend products.</p>
+  <p class="status">Currently building backend services in Python at Synergy</p>
+  <p class="intro">Backend engineer who builds and ships complete products — schema, API, and deployment. Currently building backend services in Python at Synergy. Before that, spent two years delivering client software through Star Wise Academy & Developers, working in Python, Flutter, or C++ depending on the project, and shipped 23+ applications for 20+ clients. Also builds independent projects on the side, including Vesper, Orchestra, and an AI code-review evaluation harness with 200+ downloads. Most interested in offline-first systems and wiring LLMs into backend products.</p>
 </section>
 
 <section class="about">
@@ -417,8 +429,9 @@ footer {
   <div class="about-grid reveal">
     <img src="profile.jpg" alt="Anish Singh" class="about-photo">
     <div class="about-text">
-      <p>I build tools that work without calling home. A local PDF search engine that indexes documents with Poppler and answers queries through a retrieval-augmented LLM pipeline. A Chrome extension that analyzes browsing history for confirmation bias — entirely on-device, zero server-side collection.</p>
-      <p>At Infosys, I wrote regression tests across a 50K-line production codebase. Since October 2025, I've been evaluating AI model outputs for Peroptyx, flagging inaccuracies against detailed quality rubrics across international datasets.</p>
+      <p>At <strong>Synergy</strong>, I built AutoDigest, a Python tool that automates text parsing and API workflows, with most logic running in backend scripts. Also built RxParse Service, which reads e-prescriptions and flags possible drug interactions by extracting and cross-checking medication data.</p>
+      <p>Before Synergy, I spent two years as a freelance software developer at <strong>Star Wise Academy & Developers</strong> in Rourkela, delivering 23+ applications for 20+ clients. Projects included Sukhdev Saran (a quiz-based earning app), Zeit (an HR management platform), Cleopatra (a chess-playing AI), and PantryPal (an app that tracks grocery expiry dates and suggests recipes).</p>
+      <p>On the side, I built an <strong>AI Code-Review Evaluation Harness</strong> — a FastAPI agent that flags security issues, logic bugs, and performance problems in backend pull requests, paired with a 38-example hand-curated failure-mode dataset graded with both deterministic checks and an LLM judge, reaching 84%+ agreement with human reviewers. Wired up a GitHub Actions pipeline that blocks merges below a set evaluation score; 200+ downloads so far.</p>
       <p>Right now I'm splitting time between <strong>Vesper</strong>, an intention-based dating app that replaces swiping with one proposed match per evening, and <strong>Orchestra</strong>, a multi-agent tool that coordinates several LLM providers across a product's full research-to-critique lifecycle.</p>
       <p>B.Sc. Computer Science at MITS School of Engineering, Rourkela. Expected 2026.</p>
     </div>
@@ -432,6 +445,19 @@ footer {
     <div class="project-header">
       <div>
         <span class="project-number">01</span>
+        <h3 class="project-title">AI Code-Review Evaluation Harness</h3>
+      </div>
+      <span class="project-status">Production</span>
+    </div>
+    <p class="project-meta">Python · FastAPI · Gemini API · GitHub Actions</p>
+    <p class="project-desc">Built a FastAPI code-review agent that uses an LLM to flag security issues, logic bugs, and performance problems in backend pull requests. Paired it with an evaluation harness — a 38-example, hand-curated failure-mode dataset graded with both deterministic checks and an LLM judge, reaching 84%+ agreement with human reviewers. Wired up a GitHub Actions pipeline that blocks merges below a set evaluation score; 200+ downloads so far.</p>
+    <img src="harness-screenshot.png" alt="AI Code-Review Evaluation Harness interface" class="project-image">
+  </article>
+
+  <article class="project reveal">
+    <div class="project-header">
+      <div>
+        <span class="project-number">02</span>
         <h3 class="project-title">Offline AI PDF Search</h3>
       </div>
     </div>
@@ -443,20 +469,20 @@ footer {
   <article class="project reveal">
     <div class="project-header">
       <div>
-        <span class="project-number">02</span>
+        <span class="project-number">03</span>
         <h3 class="project-title">Vesper</h3>
       </div>
       <span class="project-status">In Progress</span>
     </div>
-    <p class="project-meta">Expo SDK 57 · React Native · TypeScript · Expo Router</p>
-    <p class="project-desc">An intention-based dating app that replaces swiping with one proposed match per evening. Built the React Native/Expo UI end to end — onboarding, home feed, intention-to-match flow, inbox, profile — with a custom design system (Cormorant Garamond + Plus Jakarta Sans, dark cognac/charcoal palette), hand-built SVG icons, and native keyboard/edge-to-edge handling.</p>
+    <p class="project-meta">Expo SDK 57 · React Native · TypeScript · Expo Router · Supabase</p>
+    <p class="project-desc">An intention-based dating app that replaces swiping with one proposed match per evening. Built the React Native/Expo UI end to end — onboarding, home feed, intention-to-match flow, inbox, profile — with a custom design system (Cormorant Garamond + Plus Jakarta Sans, dark cognac/charcoal palette), hand-built SVG icons, and native keyboard/edge-to-edge handling. Designing the core mechanic around one considered match backed by Supabase and AI-assisted venue matching (Gemini + OpenRouter).</p>
     <img src="Screenshot%20(1021).png" alt="Vesper app Spark card" class="project-image">
   </article>
 
   <article class="project reveal">
     <div class="project-header">
       <div>
-        <span class="project-number">03</span>
+        <span class="project-number">04</span>
         <h3 class="project-title">Orchestra</h3>
       </div>
       <span class="project-status">In Progress</span>
@@ -469,12 +495,12 @@ footer {
   <article class="project reveal">
     <div class="project-header">
       <div>
-        <span class="project-number">04</span>
+        <span class="project-number">05</span>
         <h3 class="project-title">Ostrich Mirror</h3>
       </div>
     </div>
     <p class="project-meta">Chrome Extension · Manifest V3 · JavaScript</p>
-    <p class="project-desc">A fully on-device Chrome extension that flags confirmation bias, topic avoidance, and reliance on outdated sources in a user's browsing history, with zero server-side data collection. Background service-worker architecture using chrome.storage.local and the Chrome Alarms API for hourly analysis, self-pruning history, and rule-based categorization across 10 topic areas.</p>
+    <p class="project-desc">A fully on-device Chrome extension that flags confirmation bias, topic avoidance, and reliance on outdated sources in a user's browsing history, with zero server-side data collection. Background service-worker architecture using chrome.storage.local and the Chrome Alarms API for hourly analysis, self-pruning history, and rule-based categorization across 10 topic areas. 100+ users.</p>
     <img src="Screenshot%20(1024).png" alt="Ostrich Mirror extension popup" class="project-image">
   </article>
 </section>
@@ -484,27 +510,27 @@ footer {
   <div class="capabilities-grid reveal">
     <div>
       <p class="capabilities-category">Languages</p>
-      <p class="capabilities-list">C++<br>Python<br>Dart<br>JavaScript / TypeScript<br>SQL<br>Bash</p>
+      <p class="capabilities-list">Python<br>C++<br>JavaScript<br>TypeScript<br>SQL</p>
     </div>
     <div>
-      <p class="capabilities-category">Frameworks</p>
-      <p class="capabilities-list">React Native<br>React<br>FastAPI<br>Flutter<br>Qt6<br>Expo</p>
+      <p class="capabilities-category">Backend & APIs</p>
+      <p class="capabilities-list">FastAPI<br>Node.js<br>REST API Design</p>
     </div>
     <div>
-      <p class="capabilities-category">Backend & Data</p>
-      <p class="capabilities-list">Supabase<br>SQLite<br>Firebase<br>PostgreSQL<br>REST API design</p>
+      <p class="capabilities-category">AI / LLM Systems</p>
+      <p class="capabilities-list">LLM API Integration<br>Retrieval-Augmented Generation<br>Prompt Engineering</p>
     </div>
     <div>
-      <p class="capabilities-category">Tools</p>
-      <p class="capabilities-list">Git<br>CMake<br>PyInstaller<br>pytest<br>Chrome Extension APIs<br>LLM API integration<br>Poppler</p>
+      <p class="capabilities-category">Databases & Cloud</p>
+      <p class="capabilities-list">Firebase<br>Supabase<br>PostgreSQL<br>SQLite</p>
     </div>
     <div>
-      <p class="capabilities-category">Platforms</p>
-      <p class="capabilities-list">Linux<br>Android<br>Windows<br>Node.js</p>
+      <p class="capabilities-category">Frontend & Mobile</p>
+      <p class="capabilities-list">React Native<br>Flutter<br>React</p>
     </div>
     <div>
-      <p class="capabilities-category">Practices</p>
-      <p class="capabilities-list">OOP & SOLID<br>Software architecture<br>State management<br>Async programming<br>Agile / Scrum</p>
+      <p class="capabilities-category">DevOps, Testing & Practices</p>
+      <p class="capabilities-list">Git<br>GitHub Actions<br>Pytest<br>OOP & SOLID<br>Agile / Scrum</p>
     </div>
   </div>
 </section>
@@ -515,23 +541,23 @@ footer {
   <div class="experience-item reveal">
     <div class="experience-header">
       <div>
-        <p class="experience-role">AI Model Evaluator</p>
-        <p class="experience-company">Peroptyx · Remote, Freelance</p>
+        <p class="experience-role">Python Developer</p>
+        <p class="experience-company">Synergy · Remote</p>
       </div>
-      <p class="experience-date">Oct 2025 — Present</p>
+      <p class="experience-date">Nov 2025 — Present</p>
     </div>
-    <p class="experience-desc">Evaluate outputs of consumer AI and location-based models against detailed, client-defined quality rubrics, flagging inaccuracies and edge cases across international datasets. Maintained consistent, on-deadline output for 10+ months in a fully remote freelance role that requires independent judgment against detailed guidelines.</p>
+    <p class="experience-desc">Built AutoDigest, a Python tool that automates text parsing and API workflows; most of the logic runs in backend scripts rather than a UI. Built RxParse Service, which reads e-prescriptions and flags possible drug interactions by extracting and cross-checking medication data.</p>
   </div>
 
   <div class="experience-item reveal">
     <div class="experience-header">
       <div>
-        <p class="experience-role">Software Development Intern</p>
-        <p class="experience-company">Infosys</p>
+        <p class="experience-role">Freelance Software Developer</p>
+        <p class="experience-company">Star Wise Academy & Developers · Rourkela</p>
       </div>
-      <p class="experience-date">Aug 2025 — Oct 2025</p>
+      <p class="experience-date">2023 — Nov 2025</p>
     </div>
-    <p class="experience-desc">Wrote 25+ pytest test cases across 5 critical modules of a 50K+ line production codebase, improving regression coverage and helping catch 20+ defects before release. Integrated automated test suites into the team's Agile sprint cycle, coordinating with senior engineers on a distributed team while maintaining version-control discipline.</p>
+    <p class="experience-desc">Delivered 23+ applications for 20+ clients, working in Flutter, Python, or C++ depending on what each project needed, from requirements through deployment. Built Sukhdev Saran, a quiz-based earning app, and Zeit, an HR management platform, both using Firebase for authentication and real-time data. Also built Cleopatra, a chess-playing AI, and PantryPal, an app that tracks grocery expiry dates and suggests recipes for ingredients about to go bad.</p>
   </div>
 </section>
 
@@ -561,7 +587,12 @@ footer {
   <div class="reveal">
     <a href="mailto:anishsinghhh3@gmail.com" class="contact-email">anishsinghhh3@gmail.com</a>
     <p class="contact-phone">+91 78479 89722</p>
-    <p class="contact-note">No social links. If you want to talk, email works best. I check it daily and reply within 24 hours.</p>
+    <p class="contact-links">
+      <a href="https://in.linkedin.com/in/anishsingh">LinkedIn</a>
+      <a href="https://github.com/anishsinghhh3-bit">GitHub</a>
+      <a href="https://anishsinghhh3-bit.github.io/Anish">Portfolio</a>
+    </p>
+    <p class="contact-note">Email works best. I check it daily and reply within 24 hours.</p>
   </div>
 </section>
 
